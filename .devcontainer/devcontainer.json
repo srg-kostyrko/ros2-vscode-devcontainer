@@ -1,0 +1,37 @@
+{
+	"name": "ROS 2 Development Container",
+	"remoteUser": "ros",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "ros",
+	"workspaceFolder": "/home/ros/ws",
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-iot.vscode-ros",
+				"ms-python.python",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-python.black-formatter",
+				"ms-python.vscode-pylance",
+				"ms-vscode.cmake-tools",
+				"formulahendry.auto-close-tag",
+				"smilerobotics.urdf",
+				"sweilz.ros-snippets",
+				"redhat.vscode-xml",
+				"eamodio.gitlens"
+			],
+			"settings": {
+				// makes extensions work with docker on mac
+				"extensions.verifySignature": false
+			}
+		}
+	},
+	"features": {
+	},
+	"forwardPorts": [
+		8080
+	],
+	"shutdownAction": "stopCompose"
+}

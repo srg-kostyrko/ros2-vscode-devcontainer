@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "ms-iot.vscode-ros",
+        "ms-python.python",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.black-formatter",
+        "ms-python.vscode-pylance",
+        "ms-vscode.cmake-tools",
+        "formulahendry.auto-close-tag",
+        "smilerobotics.urdf",
+        "sweilz.ros-snippets",
+        "redhat.vscode-xml",
+        "eamodio.gitlens",
+        "ms-vscode-remote.remote-containers"
+    ]
+}

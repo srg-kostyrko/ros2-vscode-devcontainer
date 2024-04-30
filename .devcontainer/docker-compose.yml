@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  ros:
+    user: ros
+    privileged: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - DISPLAY=novnc:0.0
+    depends_on:
+      - novnc
+    volumes_from:
+      - novnc
+    networks:
+      - x11
+    devices:
+      - /dev/video0:/dev/video0
+
+    volumes:
+      - ..:/home/ros/ws:cached
+
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  novnc:
+    # image: theasp/novnc:latest
+    build: 
+      dockerfile: Dockerfile.vnc
+    environment:
+      - DISPLAY_WIDTH=1000
+      - DISPLAY_HEIGHT=780
+      - DISPLAY_DEPTH=24
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+networks:
+  x11:
